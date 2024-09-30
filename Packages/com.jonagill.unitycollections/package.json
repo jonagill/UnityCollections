@@ -1,0 +1,10 @@
+{
+  "name": "com.jonagill.unitycollections",
+  "description": "A library of data types and collections for Unity projects",
+  "version": "1.0.0",
+  "unity": "2019.2",
+  "displayName": "Unity Collections",
+  "dependencies": {
+    "com.jonagill.promises": ""
+  }
+}
