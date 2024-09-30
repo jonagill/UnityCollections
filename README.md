@@ -1,6 +1,20 @@
 # UnityCollections
 This library contains a handful of small data types, wrappers, and collections that I have found useful in Unity projects in the past.
 
+## Installation
+We recommend you install Autofill via [OpenUPM](https://openupm.com/packages/com.jonagill.unitycollections/). Per OpenUPM's documentation:
+
+1. Open `Edit/Project Settings/Package Manager`
+2. Add a new Scoped Registry (or edit the existing OpenUPM entry) to read:
+    * Name: `package.openupm.com`
+    * URL: `https://package.openupm.com`
+    * Scope(s): `com.jonagill.unitycollections`
+3. Click Save (or Apply)
+4. Open Window/Package Manager
+5. Click the + button
+6. Select Add package by name...
+6. Click Add
+
 # Contents
 
 ## ListEvent
