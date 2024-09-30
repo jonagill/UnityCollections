@@ -1,19 +1,17 @@
 {
   "dependencies": {
-    "com.jonagill.unitycollections": {
-      "version": "file:com.jonagill.unitycollections",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {
-        "com.jonagill.promises": ""
-      }
-    },
     "com.jonagill.promises": {
       "version": "1.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "https://package.openupm.com"
+    },
+    "com.jonagill.unitycollections": {
+      "version": "file:com.jonagill.unitycollections",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",

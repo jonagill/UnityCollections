@@ -1,8 +1,8 @@
 {
     "name": "UnityCollections.Tests",
+    "rootNamespace": "",
     "references": [
-        "GUID:8c23b099fd7fc4a22b53f3e1e388612a",
-        "GUID:2a1456357e964aa4a9d946a896206537"
+        "GUID:8c23b099fd7fc4a22b53f3e1e388612a"
     ],
     "includePlatforms": [
         "Editor"
