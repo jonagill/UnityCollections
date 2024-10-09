@@ -24,7 +24,7 @@ A replacement for traditional `System.Action` and `System.Action<T>` event deleg
 `TokenFlag` provides an API for a boolean flag that can be set from multiple sources. This is extremely helpful for managing things like pause state or object visibility that you want to set from multiple different systems without them stomping each other.
 
 ## Pooled collections
-`PooledList<T>`, `PooledDictionary<T>`, and `PooledHashSet<T>` are all wrappers around Unity's existing `UnityEngine.Pool` APIs (available in Unity 2020.1 and above). These wrapper types implement `IDisposable`, allowing you to allocate and return a pooled collection easily and robustly with traditional C# `using` statements. Each class can be utilized directly via the relevant collection interaces, but they all also expose the backing data via a property for cases where you need to pass them to an API that expects the underlying collection type. 
+`PooledList<T>`, `PooledDictionary<T>`, and `PooledHashSet<T>` are all wrappers around Unity's existing `UnityEngine.Pool` APIs (available in Unity 2020.1 and above). These wrapper types implement `IDisposable`, allowing you to allocate and return a pooled collection easily and robustly with traditional C# `using` statements. Each class can be utilized directly via the relevant collection interfaces, but they all also expose the backing data via a property for cases where you need to pass them to an API that expects the underlying collection type. 
 
 For example:
 
