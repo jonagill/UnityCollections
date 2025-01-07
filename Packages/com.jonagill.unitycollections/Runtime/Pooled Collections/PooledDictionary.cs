@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Pool;
 
 namespace UnityCollections
@@ -19,17 +20,7 @@ namespace UnityCollections
 
         public int Count => _dictionary.Count;
         public bool IsReadOnly => ((IDictionary<T,U>) _dictionary).IsReadOnly;
-
-        public PooledDictionary()
-        {
-            _dictionary = DictionaryPool<T,U>.Get();
-        }
-
-        public void Dispose()
-        {
-            DictionaryPool<T,U>.Release( _dictionary );
-        }
-
+        
         public U this[T key]
         {
             get => _dictionary[key];
@@ -42,6 +33,29 @@ namespace UnityCollections
         IEnumerable<T> IReadOnlyDictionary<T, U>.Keys => _dictionary.Keys;
 
         IEnumerable<U> IReadOnlyDictionary<T, U>.Values => _dictionary.Values;
+        
+        public PooledDictionary()
+        {
+            _dictionary = DictionaryPool<T,U>.Get();
+        }
+        
+        ~PooledDictionary()
+        {
+            if (_dictionary != null)
+            {
+                Debug.LogWarning($"PooledDictionary<{typeof(T).Name},{typeof(U).Name}> was finalized without being manually disposed. Returning to the pool automatically...");
+                Dispose();
+            }
+        }
+
+        public void Dispose()
+        {
+            if (_dictionary != null)
+            {
+                DictionaryPool<T,U>.Release( _dictionary );
+                _dictionary = null;
+            }
+        }
 
         public IEnumerator<KeyValuePair<T, U>> GetEnumerator()
         {

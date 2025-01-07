@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Pool;
 
 namespace UnityCollections
@@ -34,9 +35,22 @@ namespace UnityCollections
             _list = ListPool<T>.Get();
         }
 
+        ~PooledList()
+        {
+            if (_list != null)
+            {
+                Debug.LogWarning($"PooledList<{typeof(T).Name}> was finalized without being manually disposed. Returning to the pool automatically...");
+                Dispose();
+            }
+        }
+        
         public void Dispose()
         {
-            ListPool<T>.Release( _list );
+            if (_list != null)
+            {
+                ListPool<T>.Release(_list);
+                _list = null;
+            }
         }
 
         public IEnumerator<T> GetEnumerator() => _list.GetEnumerator();

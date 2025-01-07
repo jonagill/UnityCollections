@@ -3,6 +3,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Pool;
 
 namespace UnityCollections
@@ -24,10 +25,22 @@ namespace UnityCollections
         {
             _set = HashSetPool<T>.Get();
         }
-
+        ~PooledHashSet()
+        {
+            if (_set != null)
+            {
+                Debug.LogWarning($"PooledHashSet<{typeof(T).Name}> was finalized without being manually disposed. Returning to the pool automatically...");
+                Dispose();
+            }
+        }
+        
         public void Dispose()
         {
-            HashSetPool<T>.Release( _set );
+            if (_set != null)
+            {
+                HashSetPool<T>.Release( _set );
+                _set = null;
+            }
         }
 
         public IEnumerator<T> GetEnumerator() => _set.GetEnumerator();
