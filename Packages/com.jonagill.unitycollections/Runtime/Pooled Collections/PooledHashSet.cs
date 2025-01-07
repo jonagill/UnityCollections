@@ -25,6 +25,16 @@ namespace UnityCollections
         {
             _set = HashSetPool<T>.Get();
         }
+        
+        public PooledHashSet(IEnumerable<T> collection)
+        {
+            _set = HashSetPool<T>.Get();
+            foreach (var item in collection)
+            {
+                Add(item);
+            }
+        }
+        
         ~PooledHashSet()
         {
             if (_set != null)

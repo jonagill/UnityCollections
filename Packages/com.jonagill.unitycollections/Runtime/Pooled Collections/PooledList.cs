@@ -35,6 +35,12 @@ namespace UnityCollections
             _list = ListPool<T>.Get();
         }
 
+        public PooledList(IEnumerable<T> collection)
+        {
+            _list = ListPool<T>.Get();
+            AddRange(collection);
+        }
+
         ~PooledList()
         {
             if (_list != null)
