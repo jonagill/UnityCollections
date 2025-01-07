@@ -1,7 +1,7 @@
 {
   "name": "com.jonagill.unitycollections",
   "description": "A library of data types and collections for Unity projects",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "unity": "2019.2",
   "displayName": "Unity Collections"
 }
