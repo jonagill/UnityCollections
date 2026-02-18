@@ -126,6 +126,8 @@ namespace UnityCollections
         public StringBuilder Replace(char oldChar, char newChar, int startIndex, int count) => _builder.Replace(oldChar, newChar, startIndex, count);
         public StringBuilder Replace(string oldValue, string newValue) => _builder.Replace(oldValue, newValue);
         public StringBuilder Replace(string oldValue, string newValue, int startIndex, int count) => _builder.Replace(oldValue, newValue, startIndex, count);
+        
+        public override string ToString() => _builder.ToString();
     }
 }
 
