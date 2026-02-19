@@ -9,12 +9,11 @@ using UnityEngine.Pool;
 namespace UnityCollections
 {
     /// <summary>
-    /// Wrapper around Unity's ListPool API that implements IDisposable,
-    /// allowing you to construct and return pooled collections
+    /// Wrapper around Unity's ObjectPool API that implements IDisposable,
+    /// allowing you to construct and return pooled StringBuilders
     /// using the standard C# `using` constructor.
     ///
-    /// Use BackingList property if you need to pass the collection into an API that requires a concrete List
-    /// (such as the GetComponents method family).
+    /// Use BackingBuilder property if you need to pass this into an API that requires a concrete StringBuilder
     /// </summary>
     public class PooledStringBuilder : IDisposable
     {
@@ -22,7 +21,6 @@ namespace UnityCollections
         
         private StringBuilder _builder;
         public StringBuilder BackingBuilder => _builder;
-        
 
         public PooledStringBuilder()
         {
